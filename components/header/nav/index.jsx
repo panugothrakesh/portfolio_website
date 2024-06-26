@@ -1,4 +1,4 @@
-import { menuSlide } from '../../anim'
+import { menuSlide } from '../anim'
 import Link from './Link/index'
 import {motion} from 'framer-motion'
 import Footer from './footer/index'
