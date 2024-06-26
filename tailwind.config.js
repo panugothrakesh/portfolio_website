@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        gilBold: ["var(--font-gilBold)"],
+        gilSemiBold: ["var(--font-gilSemiBold)"],
+        gilMedium: ["var(--font-gilMedium)"],
+      },
       transitionTimingFunction: {
         'olivier-bes': 'cubic-bezier(0.76, 0, 0.24, 1)',
       },

@@ -5,6 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Index() {
   const [isActive, setIsActive] = useState(false);
@@ -31,15 +33,17 @@ export default function Index() {
 
   return (
     <>
+    <div className="flex justify-center items-center">
       <div className="absolute flex z-[1] top-0 p-[35px] justify-between w-full box-border items-center">
-        <div className="logo group flex items-center cursor-pointer">
-          <p className="copyright m-0 transition-all duration-500 ease-olivier-bes group-hover:-rotate-[360deg]">©</p>
+        <Link href="/"><div className="logo group flex items-center cursor-pointer">
+          <p className="copyright m-0 transition-all duration-500 ease-olivier-bes group-hover:-rotate-[360deg]"><Image src="rp.svg" alt="logo" width={240} height={80} className="w-6"></Image></p>
           <div className="names flex overflow-hidden whitespace-nowrap relative group-hover:pr-[30px] transition-all duration-500 ease-olivier-bes">
-            <p className="codeby pl-[0.3em] group-hover:-translate-x-[100%] transition-all duration-500 ease-olivier-bes">Code by</p>
-            <p className="dennis pl-[0.3em] group-hover:-translate-x-[65px] transition-all duration-500 ease-olivier-bes">Rakesh</p>
-            <p className="snellenberg absolute left-[128px] pl-[0.3em] group-hover:-translate-x-[65px] transition-all duration-500 ease-olivier-bes">Panugoth</p>
+            <p className="codeby pl-[0.3em] group-hover:-translate-x-[102%] transition-all duration-500 ease-olivier-bes">Portfolio |</p>
+            <p className="dennis pl-[0.3em] group-hover:-translate-x-[75px] transition-all duration-500 ease-olivier-bes">Rakesh</p>
+            <p className="snellenberg absolute left-[140px] pl-[0.3em] group-hover:-translate-x-[75px] transition-all duration-500 ease-olivier-bes">Panugoth</p>
           </div>
         </div>
+        </Link>
 
         <div className="nav items-center hidden md:flex">
             <div className="el p-[15px] relative group/about flex cursor-pointer">
@@ -66,7 +70,7 @@ export default function Index() {
             <div
               className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-white after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-white before:relative before:transition-all before:duration-300 ${
                 isActive
-                  ? "after:-top-[1px] before:top-[1px] after:rotate-45 before:-rotate-45"
+                  ? "after:-top-[0px] before:top-[0px] after:rotate-45 before:-rotate-45"
                   : ""
               }`}
             ></div>
@@ -76,12 +80,12 @@ export default function Index() {
             onClick={() => {
               setIsActive(!isActive);
             }}
-            className="md:hidden fixed right-0 top-0 m-[20px] w-[80px] h-[80px] bg-[#1C1D20] rounded-full flex items-center justify-center cursor-pointer"
+            className="md:hidden fixed right-0 top-0 m-[20px] w-[60px] h-[60px] bg-[#1C1D20] rounded-full flex items-center justify-center cursor-pointer z-[1] "
           >
             <div
-              className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-white after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-white before:relative before:transition-all before:duration-300 ${
+              className={`w-full after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-white after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-white before:relative before:transition-all before:duration-300 ${
                 isActive
-                  ? "after:top-[1px] before:-top-[1px] after:rotate-45 before:-rotate-45"
+                  ? "after:-top-[0px] before:top-[0px] after:rotate-45 before:-rotate-45"
                   : ""
               }`}
             ></div>
@@ -89,6 +93,7 @@ export default function Index() {
         <AnimatePresence mode="wait">
             {isActive && <Nav />}
             </AnimatePresence>
+      </div>
       </div>
     </>
   );
