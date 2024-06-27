@@ -110,7 +110,7 @@ export default function Index() {
             <div
               className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-[#1C1C1C] after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-[#1C1C1C] before:relative before:transition-all before:duration-300 ${
                 isActive
-                  ? "after:-top-[1px] before:top-[1px] after:rotate-45 before:-rotate-45"
+                  ? "after:-top-[0px] before:top-[0px] after:rotate-45 before:-rotate-45"
                   : ""
               }`}
             ></div>
