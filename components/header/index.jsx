@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import Nav from "./nav/index";
+import Nav from "../header/nav/index";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import Text from "../button/text";
 
 export default function Index() {
   const [isActive, setIsActive] = useState(false);
@@ -15,7 +16,6 @@ export default function Index() {
 
   useEffect(() => {
     if (isActive) setIsActive(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const burger = useRef(null);
@@ -30,18 +30,21 @@ export default function Index() {
         onLeave: () => {
           gsap.to(burger.current, {
             scale: 1,
+            transformOrigin: "-50px 50px",
             duration: 0.25,
-            ease: "power1.out"
+            ease: "power1.out",
           });
         },
         onEnterBack: () => {
           gsap.to(burger.current, {
             scale: 0,
+            transformOrigin: "-50px 50px",
             duration: 0.25,
-            ease: "power1.out"
-          }, setIsActive(false));
-        }
-      }
+            ease: "power1.out",
+          });
+          setIsActive(false);
+        },
+      },
     });
   }, []);
 
@@ -77,63 +80,69 @@ export default function Index() {
           </Link>
 
           <div className="nav items-center hidden md:flex">
-            <div className="el p-[15px] relative group/about flex cursor-pointer"
+            <div
+              className="el p-[15px] relative group/about flex cursor-pointer"
               onMouseEnter={() => handleMouseEnter('/about')}
               onMouseLeave={handleMouseLeave}
             >
-              <Link href="/about">About</Link>
-              <div className={`indicator transition-all duration-500 ease-olivier-bes w-[6px] h-[6px] bg-black absolute rounded-full top-[90%] left-[50%] ${pathname === '/about' && !hoveredLink || hoveredLink === '/about' ? 'scale-100' : 'scale-0'} -translate-x-[50%]`}></div>
+              <Link href="/about">
+                <Text value="ABOUT" isActive={pathname === "/about"} />
+              </Link>
             </div>
-            <div className="el p-[15px] relative flex group/projects cursor-pointer"
+            <div
+              className="el p-[15px] relative flex group/projects cursor-pointer"
               onMouseEnter={() => handleMouseEnter('/projects')}
               onMouseLeave={handleMouseLeave}
             >
-              <Link href="/projects">Projects</Link>
-              <div className={`indicator transition-all duration-500 ease-olivier-bes w-[6px] h-[6px] bg-black absolute rounded-full top-[90%] left-[50%] ${pathname === '/projects' && !hoveredLink || hoveredLink === '/projects' ? 'scale-100' : 'scale-0'} -translate-x-[50%]`}></div>
+              <Link href="/projects">
+                <Text value="PROJECTS" isActive={pathname === "/projects"} />
+              </Link>
             </div>
-            <div className="el p-[15px] relative flex group/connect cursor-pointer"
+            <div
+              className="el p-[15px] relative flex group/connect cursor-pointer"
               onMouseEnter={() => handleMouseEnter('/connect')}
               onMouseLeave={handleMouseLeave}
             >
-              <Link href="/connect">Connect</Link>
-              <div className={`indicator transition-all duration-500 ease-olivier-bes w-[6px] h-[6px] bg-black absolute rounded-full top-[90%] left-[50%] ${pathname === '/connect' && !hoveredLink || hoveredLink === '/connect' ? 'scale-100' : 'scale-0'} -translate-x-[50%]`}></div>
+              <Link href="/connect">
+                <Text value="CONNECT" isActive={pathname === "/connect"} />
+              </Link>
             </div>
           </div>
 
-        <div ref={burger} className="hidden md:block fixed top-0 right-0 z-10 scale-0">
+          <div ref={burger} className="hidden md:block fixed top-0 right-0 z-10 scale-0 origin-center">
+            <div
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
+              className="fixed right-0 top-0 m-[20px] w-[80px] h-[80px] bg-[#ffffff] shadow-lg rounded-full flex items-center justify-center cursor-pointer"
+            >
+              <div
+                className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1.5px] before:h-[1.5px] after:block after:w-[40%] after:m-auto after:bg-[#1C1C1C] after:relative after:transition-all after:duration-300
+                  after:origin-[66%_50%] 
+                  before:origin-[66%_50%]
+                  before:block before:w-[40%] before:m-auto before:bg-[#1C1C1C] before:relative before:transition-all before:duration-300 ${isActive ? 'after:-top-[1px] after:-rotate-45 before:top-[1px] before:rotate-45' : ''}`}
+              ></div>
+            </div>
+          </div>
+
           <div
             onClick={() => {
               setIsActive(!isActive);
             }}
-            className="fixed right-0 top-0 m-[20px] w-[80px] h-[80px] bg-[#ffffff] shadow-lg rounded-full flex items-center justify-center cursor-pointer"
+            className="md:hidden fixed right-0 top-0 m-[20px] w-[60px] h-[60px] bg-[#ffffff] shadow-lg rounded-full flex items-center justify-center cursor-pointer z-[1]"
           >
             <div
-              className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-[#1C1C1C] after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-[#1C1C1C] before:relative before:transition-all before:duration-300 ${
-                isActive
-                  ? "after:-top-[0px] before:top-[0px] after:rotate-45 before:-rotate-45"
-                  : ""
-              }`}
+              className={`w-full z-[1] after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1.5px] before:h-[1.5px] after:block after:w-[40%] after:m-auto after:bg-[#1C1C1C] after:relative after:transition-all after:duration-300
+                after:origin-[66%_50%] 
+                before:origin-[74%_0%]
+                before:block before:w-[40%] before:m-auto before:bg-[#1C1C1C] before:relative before:transition-all before:duration-300 ${isActive ? 'after:-top-[1px] after:-rotate-45 before:top-[1px] before:rotate-45' : ''}`}
             ></div>
           </div>
-        </div>
-          <div
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-            className="md:hidden fixed right-0 top-0 m-[20px] w-[60px] h-[60px] bg-[#ffffff] shadow-lg rounded-full flex items-center justify-center cursor-pointer z-[1] "
-          >
-            <div
-              className={`w-full after:content-[""] before:content-[""] after:-top-[5px] before:top-[5px] after:h-[1px] before:h-[1px] after:block after:w-[40%] after:m-auto after:bg-[#1C1C1C] after:relative after:transition-all after:duration-300 before:block before:w-[40%] before:m-auto before:bg-[#1C1C1C] before:relative before:transition-all before:duration-300 ${
-                isActive
-                  ? "after:-top-[1px] before:top-[1px] after:rotate-45 before:-rotate-45"
-                  : ""
-              }`}
-            ></div>
-          </div>
-        <AnimatePresence mode="wait">
+
+          <AnimatePresence mode="wait">
             {isActive && <Nav />}
-            </AnimatePresence>
-      </div>
+          </AnimatePresence>
+        </div>
       </div>
     </>
   );

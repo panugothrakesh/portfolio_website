@@ -1,3 +1,5 @@
+import Button from "../button/page"
+
 export default function Landing(){
     return(
         <>
@@ -8,6 +10,7 @@ export default function Landing(){
                 Engineer and a Product Designer based <br className="md:block hidden"/>
                 in Hyderabad, India.
             </h1>
+            <Button value="CONNECT"/>
         </div>
         </>
     )

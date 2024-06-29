@@ -7,10 +7,10 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const navItems = [
-    { title: 'Home', href: '/' },
-    { title: 'About', href: '/about' },
-    { title: 'Projects', href: '/projects' },
-    { title: 'Connect', href: '/connect' },
+    { title: 'HOME', href: '/' },
+    { title: 'ABOUT', href: '/about' },
+    { title: 'PROJECTS', href: '/projects' },
+    { title: 'CONNECT', href: '/connect' },
   ]
 
 export default function Index(){
