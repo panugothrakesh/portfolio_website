@@ -47,7 +47,7 @@ export default function Text({ value, isActive }) {
         {alphabets.map((char, i) => (
           <span
             data-letter={char}
-            className="letter h-6 after:h-6 leading-6 after:leading-6 relative after:absolute after:left-0 after:top-full after:content-[attr(data-letter)]"
+            className="letter h-6 after:h-6 leading-6 after:leading-6 relative after:absolute after:left-0 after:top-full after:content-[attr(data-letter)] whitespace-pre"
             key={`${char}-${i}`}
           >
             {char}
