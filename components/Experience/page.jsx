@@ -41,7 +41,7 @@ function InViewElement({ item, index }) {
           textAlign: "left",
           padding: "1.3rem 2rem",
           boxShadow: "none",
-          borderRadius: "10px",
+          borderRadius: "15px",
         }}
         contentArrowStyle={{ borderRight: "0.5rem solid #1e1e1e" }}
         date={item.date}
@@ -54,9 +54,12 @@ function InViewElement({ item, index }) {
         }}
         icon={item.icon}
       >
-        <h3 className="font-gilSemiBold">{item.title}</h3>
-        <p>{item.location}</p>
-        <p>{item.description}</p>
+          <div className="flex items-center gap-1">
+            <h3 className="font-gilSemiBold">{item.title} | </h3>
+            <p className="relative italic font-gilMedium -top-2 opacity-80">{item.job}</p>
+          </div>
+          <p className="opacity-40">{item.location}</p>
+          <p className=" italic opacity-80">{item.description}</p>
       </VerticalTimelineElement>
     </div>
   );
