@@ -23,7 +23,7 @@ export const experiencesData = [
         location: "Bangalore, India (Remote)",
         description:"Improved problem-solving and user-centric innovation in B2B finance tools. Streamlined user journeys and contributed to collaborative team projects.",
         icon: React.createElement(CgWorkAlt),
-        date: "oct 2023 - Nov 2023",
+        date: "Oct 2023 - Nov 2023",
     }
 ]
 

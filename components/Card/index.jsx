@@ -28,6 +28,7 @@ export default function Cards({i, title, description, src, stack, link, color, p
             <div className="description w-[40%] relative top-10">
               <p className="text-md font-gilSemiBold">{description}</p>
               <p className="text-md font-gilSemiBold pt-6">
+                Stack - &nbsp;
                 {stack.map((single, index)=>{
                   return (
                     <span key={index} className="text-sm opacity-70">
@@ -42,7 +43,7 @@ export default function Cards({i, title, description, src, stack, link, color, p
                   rel="noopener noreferrer"
                   className="pt-2 cursor-pointer flex justify-center items-center pb-[5px] px-6 border-black border text-md font-gilBold rounded-full"
                 >
-                  <Text value={"CLICK TO OPEN"}></Text>
+                  <Text value={"OPEN WEBSITE"}></Text>
                 </Link>
               </span>
             </div>
