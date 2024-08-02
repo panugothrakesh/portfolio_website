@@ -12,8 +12,6 @@ export default function Projects(){
         offset: ['start start', 'end end']
       })
 
-
-
     return (
         <div ref={container} className="text-black">
             {projects.map((project, i)=>{

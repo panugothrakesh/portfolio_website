@@ -1,0 +1,17 @@
+/* experience.css */
+.vertical-timeline-element--work {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Add any additional styling needed */
+.text-white {
+  color: #ffffff;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+/* Customize other styles as needed */

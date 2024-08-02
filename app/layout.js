@@ -11,7 +11,7 @@ export const metadata = {
 };
 const gilBold = localFont({src:[{path: "../fonts/Gilroy-Bold.ttf"}], variable: '--font-gilBold'})
 const gilSemiBold = localFont({src:[{path: "../fonts/Gilroy-SemiBold.ttf"}], variable: '--font-gilSemiBold'})
-const gilMedium = localFont({src:[{path: "../fonts/Gilroy-Medium.ttf"}], variable: '--font-gilSemiBold'})
+const gilMedium = localFont({src:[{path: "../fonts/Gilroy-Medium.ttf"}], variable: '--font-gilMedium'})
 const coolvetica = localFont({src:[{path: "../fonts/coolvetica_compressed_hv.otf"}], variable: '--font-coolvetica'})
 
 export default function RootLayout({ children }) {
